@@ -1,0 +1,290 @@
+.footer{
+	width: 100%;
+	@include museo300;
+	color: $c_content;
+	font-size: 15px;
+	letter-spacing: 0.24px;
+	border-top: 1px solid $c_grey_border;
+
+	li{
+		@include museo500;
+		font-size: 15px;
+		margin-bottom: 18px;
+
+		@include max-screen (321px) {
+			margin-bottom: 10px;
+			text-align: center;
+		}
+	}
+
+	a{
+		color: $c_content;
+
+		&:hover, &:focus{
+			color: $c_func_color;
+		}
+	}
+
+	.footer-content {
+		padding: 70px 0;
+		@include flex($j-sb,$a-fs);
+
+		.footer-logo-block {
+			width: 100%;
+			max-width: 25.6410%;
+
+			.footer-icon,
+			.footer-mail,
+			.footer__logo{
+				width: 210px;
+			}
+
+
+			a.footer-mail{
+				max-width: 200px;
+				display: block;
+				margin-bottom: 20px;
+			}
+
+			.footer-icon-block{
+
+				i::before{
+					font-size: 30px;
+					color: #929aa8;
+					transition: all 0.3s linear;
+					margin-right: 20px;
+				}
+
+				i:hover::before, &:focus::before {
+					color: $c_func_color;
+				}
+			}
+		}
+
+		.footer-nav-block {
+			width: 100%;
+			max-width: calc(100% - 25.6410% - 272px);
+
+			.foot-list {
+				display: flex;
+				flex-wrap: wrap;
+			}
+
+			.foot-item{
+				width: 100%;
+				max-width: 50%;
+
+				&:nth-child(1){
+					order: 1;
+				}
+
+				&:nth-child(5){
+					order: 2;
+				}
+
+				&:nth-child(2){
+					order: 3;
+				}
+
+				&:nth-child(6){
+					order: 4;
+				}
+
+				&:nth-child(3){
+					order: 5;
+				}
+
+				&:nth-child(7){
+					order: 6;
+				}
+
+				&:nth-child(4){
+					order: 7;
+				}
+			}
+		}
+
+		.footer-contact-block {
+			width: 272px;
+			height: 140px;
+			padding: 26px;
+			border: 1px dashed #88c5ef;
+			border-radius: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+
+			p{
+				text-align: center;
+
+			}
+
+			.big-number {
+
+				@include museo700;
+				font-size: 24px;
+				color: #88c5ef;
+				margin-bottom: 10px;
+
+				&:hover, &:focus{
+					color: $c_content;
+				}
+			}
+		}
+}
+
+	hr{
+		margin: 0;
+		height: 1px;
+		border: 0px none;
+		color: #dee1e5;
+		background-color: $c_grey_border;
+	}
+
+	.footer-prava {
+		display: flex;
+		padding: 20px 0;
+		font-size: 13px;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		&-block{
+			width: 100%;
+			max-width: fit-content;
+			text-align: center;
+		}
+	}
+}
+
+.footer{
+
+	&-mail{
+		margin-top: 10px;
+	}
+
+	&__img{
+		margin-left: -7px;
+		height: 51px;
+	}
+
+	&__link{
+		display: flex;
+	}
+
+	.footer-icon{
+		margin-top: 20px;
+
+		&__list{
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__item{
+			margin: 0;
+		}
+
+		&__link{
+			display: flex;
+			width: 30px;
+			height: 30px;
+			border-radius: 15px;
+
+			&.soc_vk{
+				@include back_strip(-3, -3);
+			}
+
+			&.soc_tel{
+				@include back_strip(-3, -39);
+			}
+
+			&.soc_insta{
+				@include back_strip(-3, -75);
+			}
+
+			&.soc_yt{
+				@include back_strip(-3, -111);
+			}
+
+			&.soc_tt{
+				@include back_strip(-3, -147);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 930px) {
+	.footer .footer-content{
+		flex-wrap: wrap;
+		padding: 30px 0;
+	}
+
+	.footer .footer-content .footer-logo-block{
+		max-width: 100%;
+	}
+
+	.footer .footer-content .footer-logo-block .footer-icon,
+	.footer .footer-content .footer-logo-block .footer-mail,
+	.footer .footer-content .footer-logo-block .footer__logo{
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.footer .footer-content .footer-nav-block{
+		max-width: 100%;
+	}
+
+	.footer .footer-content .footer-nav-block .foot-list{
+		flex-direction: column;
+		align-items: center;
+		margin-top: 35px;
+	}
+
+	.footer .footer-content .footer-nav-block .foot-item{
+		max-width: fit-content;
+		&:nth-child(1){
+			order: 1;
+		}
+		&:nth-child(2){
+			order: 2;
+		}
+		&:nth-child(3){
+			order: 3;
+		}
+		&:nth-child(4){
+			order: 4;
+		}
+		&:nth-child(5){
+			order: 5;
+		}
+		&:nth-child(6){
+			order: 6;
+		}
+		&:nth-child(7){
+			order: 7;
+		}
+	}
+
+	.footer .footer-content .footer-contact-block{
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.footer .footer-prava{
+		padding-top: 10px;
+	}
+
+	.footer .footer-prava-block{
+		padding-top: 10px;
+		max-width: 50%;
+	}
+}
+
+@media screen and (max-width: 470px) {
+	.footer .footer-prava-block{
+		max-width: 100%;
+	}
+}

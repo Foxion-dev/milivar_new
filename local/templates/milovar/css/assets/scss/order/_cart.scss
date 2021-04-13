@@ -1,0 +1,837 @@
+.cart-title{
+    @include museo700;
+    font-size: 36px;
+    margin-bottom: 75px;
+}
+
+.mobi-par-cart{
+    display: none;
+}
+
+.cart-prod-title{
+    display: flex;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $c_grey_border;
+    margin-bottom: 20px;
+    color: $c_content;
+    font-size: 14px;
+    @include museo500;
+
+    &__name{
+        width: 100%;
+        max-width: 25.9829%;
+    }
+
+    &__category{
+        width: 100%;
+        max-width: 12.6495%;
+    }
+
+    &__packing{
+        width: 100%;
+        max-width: 8.547%;
+    }
+
+    &__price{
+        width: 100%;
+        max-width: 9.4871%;
+    }
+
+    &__sale{
+        width: 100%;
+        max-width: 7.9487%;
+    }
+
+    &__pricesale{
+        width: 100%;
+        max-width: 15.3846%;
+    }
+
+    &__count{
+        width: 100%;
+        max-width: 8.9743%;
+    }
+
+    &__final{
+        width: 100%;
+        max-width: 11.0259%;
+    }
+}
+
+.market-cart{
+
+    .basket{
+
+        &-items{
+
+            &-list{
+                padding: 0;
+
+                &-container{
+                    background-color: transparent;
+                }
+
+                &-wrapper{
+                    border: 0;
+                }
+
+                &-item{
+
+                    &-container{
+                        height: 90px;
+                        display: flex;
+                        margin-bottom: 10px;
+                        background-color: $c_white;
+                        border-radius: 5px;
+                        align-items: center;
+                    }
+
+                    &-descriptions{
+                        height: 100%;
+                        order: 1;
+                        padding: 15px;
+                        width: 100%;
+                        max-width: 25.9829%;
+
+                        &-inner{
+                            height: 100%;
+                        }
+                    }
+
+                    &-category{
+                        order: 2;
+                        width: 100%;
+                        max-width: 12.6495%;
+                        font-size: 15px;
+                        @include museo500;
+                    }
+
+                    &-fasovka{
+                        order: 3;
+                        width: 100%;
+                        max-width: 8.547%;
+                        font-size: 15px;
+                        @include museo500;
+                    }
+
+                    &-price{
+                        order: 4;
+                    }
+
+                    &-scidos{
+                        order: 5;
+                        width: 100%;
+                        max-width: 7.9487%;
+                        font-size: 15px;
+                        @include museo500;
+                    }
+
+                    &-amount{
+                        order: 10;
+                        width: 100%;
+                        max-width: 8.9743%;
+                        padding-top: 0;
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    &-price-full{
+                        order: 11;
+                    }
+
+                    &-remove{
+                        order: 12;
+                        padding-top: 0 !important;
+                        position: absolute;
+                        right: 15px;
+                    }
+                }
+            }
+        }
+
+        &-item{
+
+            &-name{
+                margin: 0;
+                padding: 0;
+                font-size: 13px;
+                @include museo500;
+            }
+
+            &-block{
+
+                &-info{
+                    display: flex;
+                    padding-left: 15px;
+                    align-items: center;
+
+                    &-name{
+                        margin: 0;
+                        padding: 0;
+                        font-size: 13px;
+                        @include museo500;
+                    }
+
+                    .basket-item-actions-remove{
+                        display: none;
+                    }
+                }
+
+                &-image{
+                    padding: 0;
+                    max-width: 60px;
+                    min-width: 60px;
+                    border-radius: 5px;
+                    overflow: hidden;
+                }
+
+                &-info{
+                    width: 100%;
+
+                }
+            }
+
+            &-actions{
+
+                &-remove{
+
+                    &::before,
+                    &::after{
+                        background-color: $c_content;
+                    }
+                }
+            }
+        }
+    }
+
+    .basket-item-info-name{
+        padding: 0;
+        margin: 0 auto 0 0 !important;
+        line-height: 17px;
+    }
+
+    .basket-item-block-price{
+        padding-top: 0;
+    }
+
+    .basket-item-price-current-text{
+        font-size: 15px;
+        @include museo500;
+    }
+
+    .basket-items-list-item-price-for-one{
+        width: 100%;
+        max-width: 9.4871%;
+    }
+
+    .basket-item-price-current{
+        display: flex;
+    }
+
+    .basket-items-list-item-price-two{
+        order: 6;
+        width: 100%;
+        max-width: 15.3846%;
+    }
+
+    .basket-items-list-item-container > td{
+        border-top: 0;
+    }
+
+    .basket-item-block-amount{
+        padding: 0;
+        align-items: center;
+        left: -30px;
+        position: relative;
+    }
+
+    .basket-item-amount-btn-plus,
+    .basket-item-amount-btn-minus{
+        display: flex;
+        background-color: $c_grey_border;
+        width: 26px;
+        height: 26px;
+        min-width: 26px;
+        border-radius: 13px;
+
+        &::after,
+        &::before{
+            background-color: $c_white;
+        }
+    }
+
+    .basket-item-amount-filed,
+    .basket-item-block-amount.disabled .basket-item-amount-filed:hover{
+        width: 40px;
+        height: 22px;
+        margin: 0 7px;
+        font-size: 13px;
+        background-color: #f2f3f7;
+        border-radius: 3px;
+        border-color: #f2f3f7;
+        color: #949daf;
+    }
+
+    .basket-item-block-actions{
+        display: flex;
+        justify-content: flex-end;
+        opacity: 1;
+    }
+
+    .basket-checkout-container{
+        height: 160px;
+        margin-bottom: 100px;
+        display: flex;
+        align-items: center;
+        border: 0;
+        border-radius: 3px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .basket-coupon-alert-section{
+        display: none;
+    }
+
+    .basket-coupon-section{
+
+    }
+
+    .btn.btn-lg.btn-primary.basket-btn-checkout{
+        width: 224px;
+        height: 60px;
+        border: 1px solid $c_func_color;
+        border-radius: 30px;
+        background-color: $c_func_color;
+        color: $c_white;
+        font-size: 16px;
+        @include museo500;
+        cursor: pointer;
+
+        &:hover{
+            background-color: $c_white;
+            color: $c_func_color;
+        }
+
+        &:active,
+        &:focus{
+           outline: 0;
+        }
+    }
+
+    .basket-checkout-block-btn{
+        padding-top: 0;
+    }
+
+    .button-promo{
+        text-align: center;
+        padding-top: 15px;
+
+        &-link{
+            color: $c_func_color;
+            font-size: 16px;
+            @include museo500;
+        }
+    }
+
+    &.coupon-show{
+
+        .coupon-modal{
+            display: flex;
+        }
+    }
+
+    .coupon-modal{
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, .8);
+        justify-content: center;
+        align-items: center;
+        z-index: 20;
+
+        &__box{
+            width: 100%;
+            max-width: 570px;
+            background-color: $c_white;
+            border-radius: 5px;
+            padding: 60px 125px;
+            position: relative;
+
+            .basket-coupon-block-field{
+                padding: 0;
+            }
+        }
+
+        &__close{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            height: 18px;
+            width: 18px;
+            cursor: pointer;
+
+            &::before,
+            &::after{
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                display: flex;
+                height: 2px;
+                width: 25px;
+                transform-origin: center;
+                transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+                background-color: #dee1ec;
+                border-radius: 2px;
+            }
+
+            &::after{
+                transform: translateX(-50%) translateY(-50%) rotate(45deg);
+            }
+        }
+
+        &__title{
+            font-size: 36px;
+            @include museo700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        &__body{
+            padding: 0 15px;
+
+            &-input{
+                display: flex;
+                width: 100%;
+                height: 54px;
+                align-items: center;
+                background-color: #f2f3f7;
+                border: 0;
+                padding: 0 18px;
+                border-radius: 5px;
+                margin-bottom: 25px;
+
+                &:focus,
+                &:active{
+                    outline: 0;
+                }
+            }
+
+            &-but{
+                position: relative;
+                top: 0;
+                right: auto;
+                left: 0;
+                margin-top: 0;
+                transform: rotate(0);
+                border: 1px solid $c_func_color;
+                display: flex;
+                width: 100%;
+                height: 60px;
+                justify-content: center;
+                align-items: center;
+                border-radius: 30px;
+                background-color: $c_func_color;
+                color: $c_white;
+
+                &:hover{
+                    color: $c_func_color;
+                    background-color: $c_white;
+                }
+            }
+        }
+    }
+
+    .basket-checkout-section-inner{
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .basket-checkout-block-total{
+        padding: 0;
+    }
+
+    .basket-checkout-block__info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .basket-checkout-block__title{
+        font-size: 14px;
+        @include museo300;
+        color: $c_content;
+    }
+
+    .basket-checkout-block__text{
+        font-size: 14px;
+        @include museo700;
+        color: $c_content;
+    }
+
+    .basket-checkout-block-scidos{
+        width: 100%;
+        max-width: 23.3333%;
+        padding-left: 4.2735%;
+        display: flex;
+
+        &__img{
+            display: flex;
+            background-position: -3px -417px;
+            width: 58px;
+            height: 60px;
+            background-image: url(../images/strip.png);
+            margin-right: 15px;
+        }
+    }
+
+    .basket-checkout-block-pred-scidos{
+        width: 100%;
+        max-width: 14.7863%;
+    }
+
+    .basket-checkout-block-sum{
+        width: 100%;
+        max-width: 13.0769%;
+    }
+
+    .basket-checkout-block-total{
+        width: 100%;
+        max-width: 7.5384%;
+        text-align: left;
+    }
+
+    .basket-checkout-block-total-description{
+        font: unset;
+    }
+
+    .basket-checkout-block-total-price{
+        padding-left: 0;
+        width: 100%;
+        max-width: 19.1025%;
+    }
+
+    .basket-checkout-block-total-price-inner{
+        padding-top: 0;
+    }
+
+    .basket-coupon-block-total-price-current{
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .basket-coupon-block-total-price-current{
+        font-size: 25px;
+    }
+
+    .basket-checkout-block-btn{
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    .market-cart{
+        .mobi-par-cart{
+            display: table-cell;
+            order: 11;
+            width: 100%;
+
+            &__info{
+                padding: 20px 0;
+                border-top: 1px solid $c_grey_border;
+
+                &-title{
+                    font-size: 13px;
+                    @include museo700;
+                    padding-bottom: 4px;
+                }
+
+                &-line{
+                    padding: 4px 0;
+                    font-size: 13px;
+                    @include museo500;
+                }
+            }
+
+            &__door{
+                display: flex;
+                width: 100%;
+                height: 50px;
+                align-items: center;
+                justify-content: center;
+                color: $c_func_color;
+                font-size: 13px;
+                border-top: 1px solid $c_grey_border;
+
+                &-close,
+                &-open{
+                    padding-right: 20px;
+                    position: relative;
+                    cursor: pointer;
+
+                    &::before,
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        width: 7px;
+                        height: 1px;
+                        background-color: #87c5ef;
+                        right: 10px;
+                        top: 10px;
+                        transform-origin: right;
+                        transform: rotate(45deg);
+                    }
+
+                    &::after{
+                        transform: rotate(135deg);
+                    }
+                }
+
+                &-close{
+                    display: none;
+
+                    &::before{
+                        transform: rotate(225deg);
+                        top: 5px;
+                    }
+
+                    &::after{
+                        transform: rotate(315deg);
+                        top: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .cart-prod-title{
+        display: none;
+    }
+
+    .market-cart{
+
+        .basket-checkout-section-inner{
+            flex-wrap: wrap;
+            padding: 0 36px;
+        }
+
+        .basket-checkout-container{
+            height: auto;
+        }
+
+        .basket-checkout-block-scidos__img{
+            display: none;
+        }
+
+        .basket-checkout-block-total-price{
+            order: 1;
+            max-width: 100%;
+            border-bottom: 1px solid $c_grey_border;
+            padding-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include museo700();
+            margin-bottom: 15px;
+
+            &::before{
+                content: "Итоговая сумма";
+                margin-right: auto;
+                font-size: 25px;
+            }
+        }
+
+        .basket-checkout-block-scidos{
+            order: 2;
+            padding-left: 0;
+            max-width: 25%;
+            min-width: 1px;
+        }
+
+        .basket-checkout-block-pred-scidos{
+            order: 3;
+            max-width: 25%;
+            min-width: 1px;
+        }
+
+        .basket-checkout-block-sum{
+            order: 4;
+            max-width: 25%;
+            min-width: 1px;
+        }
+
+        .basket-checkout-block-total{
+            order: 5;
+            max-width: 25%;
+            min-width: 1px;
+        }
+
+        .basket-checkout-block-btn{
+            order: 6;
+            text-align: center;
+            padding-top: 20px;
+            max-width: 100%;
+            width: 100%;
+            padding-right: 0;
+        }
+
+        .basket-coupon-block-total-price-current{
+           @include museo700();
+        }
+
+        .button-promo{
+            width: 224px;
+            height: 60px;
+            border: 1px solid $c_func_color;
+            border-radius: 30px;
+            background-color: $c_white;
+            color: $c_white;
+            font-size: 16px;
+            @include museo500;
+            cursor: pointer;
+            margin: 15px auto 0;
+
+            &:hover{
+                background-color: $c_white;
+                color: $c_func_color;
+            }
+
+            &:active,
+            &:focus{
+                outline: 0;
+            }
+        }
+
+        .basket-items-list-item-fasovka,
+        .basket-items-list-item-category,
+        .basket-items-list-item-price-for-one,
+        .basket-items-list-item-price-two,
+        .basket-items-list-item-scidos,
+        .basket-item-block-properties{
+            display: none;
+        }
+
+        .basket-items-list-item-container{
+            height: auto;
+            padding: 20px 20px 52px;
+            flex-wrap: wrap;
+        }
+
+        .basket-items-list-item-remove{
+            top: 14px;
+            right: 14px;
+        }
+
+        .basket-items-list-item-descriptions{
+            padding: 0 0 15px 0;
+            max-width: 100%;
+
+            .basket-items-list-item-descriptions-inner{
+                align-items: flex-start;
+                flex-direction: row;
+            }
+        }
+
+        .basket-items-list-item-amount{
+            padding-bottom: 0;
+            max-width: 100%;
+            position: absolute;
+            bottom: 20px;
+
+            .basket-item-block-amount{
+                margin-bottom: 0;
+                margin-left: auto;
+                left: auto;
+                right: 125px;
+                width: fit-content;
+            }
+        }
+
+        .basket-items-list-item-price-full{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 0;
+
+            .basket-item-block-price{
+                margin-bottom: 0;
+            }
+        }
+
+        .basket-item-block-info{
+            padding-right: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 580px){
+
+    .market-cart{
+
+        .basket-item-block-price{
+            padding: 0;
+        }
+
+        .basket-item-block-image,
+        .basket-item-image{
+            max-width: 60px;
+            margin: 0;
+            min-width: 60px;
+        }
+
+        .basket-checkout-block-scidos{
+            max-width: 50%;
+            margin-bottom: 15px;
+        }
+
+        .basket-checkout-block-pred-scidos{
+            max-width: 50%;
+            margin-bottom: 15px;
+
+        }
+
+        .basket-checkout-block-sum{
+            max-width: 50%;
+        }
+
+        .basket-checkout-block-total{
+            max-width: 50%;
+        }
+
+        .basket-coupon-block-total-price-current{
+            font-size: 16px;
+        }
+
+        .basket-checkout-block-total-price:before{
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 420px){
+
+    .market-cart .basket-items-list-item-container{
+        padding-bottom: 52px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .market-cart .btn.btn-lg.btn-primary.basket-btn-checkout{
+        width: 100%;
+    }
+
+    .market-cart .button-promo{
+        width: 100%;
+    }
+
+    .market-cart .basket-checkout-section-inner{
+        padding:  20px;
+    }
+}
