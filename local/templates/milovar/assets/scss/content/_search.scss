@@ -1,19 +1,19 @@
-.search-page{
+.search-page {
 
-    &__title{
+    &__title {
 
-        h1{
+        h1 {
             @include museo700;
             font-size: 36px;
             display: inline-flex;
         }
 
-        &-deli{
+        &-deli {
             @include museo700;
             font-size: 36px;
         }
 
-        &-text{
+        &-text {
             @include museo500;
             font-size: 24px;
             color: #acbdd1;
@@ -21,43 +21,65 @@
         }
     }
 
-    .serch-none{
+    .serch-none {
         font-size: 20px;
         @include museo500;
     }
 }
 
-.search-full{
+.search-full {
     display: flex;
     align-items: flex-start;
     margin-top: 50px;
 
-    &__category{
-        width: 100%;
-        max-width: 270px;
-    }
+    @include max-screen (1110px) {}
 
-    &__block{
+
+    // &__category {
+    //     width: 100%;
+    //     max-width: 270px;
+    //     // position: relative;
+
+
+    // }
+
+    &__block {
         width: 100%;
         max-width: calc(100% - 270px);
         padding-left: 30px;
+
+        @include max-screen (1110px) {
+            max-width: 100%;
+        }
     }
 }
 
-.search-result{
+.search-result {
 
-    &__item{
+    &__item {
         min-height: 180px;
         display: flex;
         margin-bottom: 20px;
         background-color: $c_white;
         border-radius: 5px;
         padding: 25px;
-        -webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.18);
-        -moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.18);
-        box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.18);
+        -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.18);
+        -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.18);
+        box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.18);
 
-        &-face{
+
+        @include max-screen (768px) {
+            flex-direction: column;
+            align-items: center;
+            max-width: 400px;
+            margin: 0 auto;
+            margin-bottom: 30px;
+            padding-bottom: 0px;
+
+
+        }
+
+        &-face {
             height: 130px;
             width: 100%;
             max-width: 175px;
@@ -67,45 +89,78 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+
+            @include max-screen (768px) {
+                height: auto;
+                max-width: 200px;
+            }
+
         }
 
-        &-img{
+        &-img {
             height: 100%;
             border-radius: 3px;
             width: auto;
-            max-width: 1000%;
+            max-width: 100%;
         }
 
-        &-info{
+        &-info {
             width: 100%;
             max-width: calc(100% - 175px - 33%);
             padding: 10px 3.7% 10px 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
+            @include max-screen (1024px) {
+                max-width: 100%;
+
+
+            }
+
+            @include max-screen (480px) {
+                padding-left: 0;
+            }
+
+
         }
 
-        &-name{
+        &-name {
             font-size: 15px;
             @include museo500;
         }
 
-        &-price{
+        &-price {
             @include museo700;
             font-size: 18px;
+            margin-right: 5px;
+
+            .js-cart-price {
+                white-space: nowrap;
+
+            }
         }
 
-        &-offer{
+        &-offer {
             width: 100%;
-            max-width: calc(100% - 175px - 45%);
+            // max-width: calc(100% - 175px - 45%);
+
         }
 
-        &-counter{
+        &-counter {
             display: flex;
             align-items: center;
+
+            @include max-screen (480px) {
+                // flex-direction: column;
+                flex-wrap: wrap;
+
+
+            }
+
         }
 
-        &-but{
+        &-but {
             width: 99px;
             height: 36px;
             justify-content: center;
@@ -120,52 +175,75 @@
             margin-left: 10px;
             @include museo500();
 
-            &:focus{
+            &:focus {
                 outline: 0;
             }
 
-            &:hover{
+            &:hover {
                 background-color: $c_white;
                 color: $c_func_color;
             }
+
+            @include max-screen (480px) {
+                margin: 10px auto 0;
+            }
+
         }
 
-        &-num{
+        &-num {
             display: flex;
             margin-left: auto;
+
+        }
+
+        div:not([class]) {
+            width: 100%;
+            text-align: center;
         }
     }
 }
 
-.catalog-category{
-    width: 100%;
-    max-width: 270px;
-    padding: 30px;
-    background-color: $c_white;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 0 12px 0 rgba(0,0,0,0.1);
-    -moz-box-shadow: 0 0 12px 0 rgba(0,0,0,0.1);
-    box-shadow: 0 0 12px 0 rgba(0,0,0,0.1);
-    position: relative;
+// .catalog-category {
+//     width: 100%;
+//     max-width: 270px;
+//     padding: 30px;
+//     background-color: $c_white;
+//     border-radius: 5px;
+//     -webkit-box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.1);
+//     -moz-box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.1);
+//     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.1);
+//     position: relative;
 
-    &__title{
-        font-size: 18px;
-        @include museo700;
-        padding-bottom: 25px;
-        border-bottom: 1px solid $c_grey_border;
-    }
-}
+//     @include max-screen (1110px) {
+//         position: fixed;
+//     }
 
-.deep-lev{
 
-    &-0{
+//     &__title {
+//         font-size: 18px;
+//         @include museo700;
+//         padding-bottom: 25px;
+//         border-bottom: 1px solid $c_grey_border;
+//     }
 
-        .catalog-category{
+//     .mobile-bottom--search {
+//         // @include max-screen (426px) {
+//         //     right: -80px;
+//         // }
 
-            &__item{
+//     }
+// }  //     }
+
+.deep-lev {
+
+    &-0 {
+
+        .catalog-category {
+
+            &__item {
                 border-bottom: 1px solid $c_grey_border;
 
-                &-link{
+                &-link {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
@@ -174,17 +252,17 @@
                 }
             }
 
-            &__link{
+            &__link {
                 color: $c_content_trans;
                 position: relative;
                 z-index: 3;
 
-                &:hover{
+                &:hover {
                     color: $c_func_color;
                 }
             }
 
-            &__sub{
+            &__sub {
                 cursor: pointer;
                 display: flex;
                 border: 7px solid $c_content_trans;
@@ -198,35 +276,35 @@
         }
     }
 
-    &-1{
+    &-1 {
         display: none;
     }
 }
 
 
-.deep-lev-1{
+.deep-lev-1 {
     padding: 15px 0;
 
-    .catalog-category__item{
+    .catalog-category__item {
         border-bottom: 0;
     }
 
-    .catalog-category__item-link{
+    .catalog-category__item-link {
         height: 36px;
     }
 
-    .catalog-category__link{
+    .catalog-category__link {
         font-size: 13px;
     }
 }
 
 
-.catalog-category__item.is-open{
+.catalog-category__item.is-open {
 
-    > .catalog-category__item-link{
+    >.catalog-category__item-link {
         position: relative;
 
-        &::before{
+        &::before {
             content: "";
             position: absolute;
             top: 0;
@@ -238,7 +316,7 @@
             z-index: 1;
         }
 
-        &::after{
+        &::after {
             content: "";
             position: absolute;
             top: 0;
@@ -248,45 +326,45 @@
             background-color: $c_func_color;
         }
 
-        .catalog-category__sub{
+        .catalog-category__sub {
             transform: rotateX(180deg);
             border-top-color: $c_func_color;
             position: relative;
             z-index: 3;
         }
 
-        .catalog-category__link{
+        .catalog-category__link {
             color: $c_content;
             position: relative;
             z-index: 3;
 
-            &:hover{
+            &:hover {
                 color: $c_func_color;
             }
         }
     }
 }
 
-.catalog-product{
+.catalog-product {
 
-    &__title{
+    &__title {
         margin-top: 25px;
         padding: 0 25px;
 
-        &-link{
+        &-link {
             display: flex;
         }
 
-        &-name{
+        &-name {
             font-size: 15px;
             @include museo500();
             height: 66px;
         }
     }
 
-    &__card{
+    &__card {
 
-        &-did{
+        &-did {
             display: flex;
             height: 26px;
             width: 35px;
@@ -294,12 +372,12 @@
             text-align: center;
             -moz-appearance: textfield;
 
-            &:focus{
+            &:focus {
                 outline: 0;
             }
 
             &::-webkit-outer-spin-button,
-            &::-webkit-inner-spin-button{
+            &::-webkit-inner-spin-button {
                 -webkit-appearance: none;
             }
 
@@ -307,7 +385,7 @@
         }
 
         &-plus,
-        &-min{
+        &-min {
             display: flex;
             width: 26px;
             height: 26px;
@@ -318,14 +396,14 @@
             justify-content: center;
             color: $c_white;
             position: relative;
-            cursor:pointer;
+            cursor: pointer;
 
-            &:focus{
+            &:focus {
                 outline: 0;
             }
 
             &:before,
-            &:after{
+            &:after {
                 position: absolute;
                 content: "";
                 display: flex;
@@ -336,59 +414,59 @@
                 margin-top: -1px;
             }
 
-            &:after{
+            &:after {
                 transform: rotate(90deg);
             }
 
-            &:hover{
+            &:hover {
                 background-color: $c_white;
 
                 &:before,
-                &:after{
+                &:after {
                     background-color: $c_gray_btn;
                 }
             }
         }
 
-        &-min{
+        &-min {
 
-            &:after{
+            &:after {
                 content: none;
             }
         }
     }
 
-    &__variation{
+    &__variation {
         position: relative;
         z-index: 1;
         width: 100%;
         background-color: $c_white;
         border-radius: 0 0 5px 5px;
 
-        &.is-show{
-            -webkit-box-shadow: 0 12px 12px 0 rgba(0,0,0,0.1);
-            -moz-box-shadow: 0 12px 12px 0 rgba(0,0,0,0.1);
-            box-shadow: 0 12px 12px 0 rgba(0,0,0,0.1);
+        &.is-show {
+            -webkit-box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.1);
+            -moz-box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 12px 12px 0 rgba(0, 0, 0, 0.1);
 
-            .catalog-product__variation{
-                &-open{
+            .catalog-product__variation {
+                &-open {
                     display: none;
                 }
 
-                &-close{
+                &-close {
                     display: flex;
                 }
             }
         }
 
-        &-subtitle{
+        &-subtitle {
             font-size: 13px;
             @include museo500();
             color: #949daf;
             padding: 0;
         }
 
-        &-list{
+        &-list {
             padding: 0;
             display: flex;
             flex-wrap: wrap;
@@ -397,9 +475,10 @@
             margin-bottom: 14px;
         }
 
-        &-item{
+        &-item {
             display: flex;
             height: 40px;
+            flex-shrink: 0;
             width: 100%;
             max-width: 30%;
             justify-content: center;
@@ -412,25 +491,29 @@
             position: relative;
             @include museo500();
 
-            &:nth-child(3n + 2){
+            &:nth-child(3n + 2) {
                 margin-right: 5%;
                 margin-left: 5%;
             }
 
-            &.is-chek{
+            @include max-screen (480px) {
+                min-width: 90px;
+            }
+
+            &.is-chek {
                 border-color: $c_func_color;
 
-                .catalog-product__variation-title{
+                .catalog-product__variation-title {
                     color: $c_func_color;
                 }
 
-                .catalog-product__variation-quest{
+                .catalog-product__variation-quest {
                     background-position: -46px -23px;
                 }
             }
         }
 
-        &-quest{
+        &-quest {
             display: flex;
             position: absolute;
             height: 14px;
@@ -442,7 +525,7 @@
             background-position: -46px -3px;
         }
 
-        &-text{
+        &-text {
             display: none;
             position: absolute;
             background-color: #fff;
@@ -458,13 +541,13 @@
             width: 100px;
         }
 
-        &-hidden{
+        &-hidden {
             width: 100%;
             display: none;
             justify-content: space-between;
         }
 
-        &-toggle{
+        &-toggle {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -476,7 +559,7 @@
             bottom: -14px;
             left: 0;
 
-            &::before{
+            &::before {
                 content: "";
                 width: 82%;
                 position: absolute;
@@ -490,14 +573,14 @@
         }
 
         &-open,
-        &-close{
+        &-close {
             background-color: $c_white;
             display: flex;
             padding: 0 20px 0 7px;
             position: relative;
 
             &::before,
-            &::after{
+            &::after {
                 content: "";
                 position: absolute;
                 width: 7px;
@@ -509,34 +592,34 @@
                 transform: rotate(45deg);
             }
 
-            &::after{
+            &::after {
                 transform: rotate(135deg);
             }
 
         }
 
-        &-close{
+        &-close {
             display: none;
 
             &::before,
-            &::after{
+            &::after {
                 transform: rotate(225deg);
                 top: 8px;
             }
 
-            &::after{
+            &::after {
                 transform: rotate(315deg);
             }
         }
     }
 }
 
-.catalog-product__variation-quest{
+.catalog-product__variation-quest {
 
-    &:hover{
+    &:hover {
         z-index: 100;
 
-        .catalog-product__variation-text{
+        .catalog-product__variation-text {
             display: flex;
         }
     }

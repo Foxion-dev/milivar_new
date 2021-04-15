@@ -1,4 +1,5 @@
-; (function () {
+;
+(function () {
 	'use strict';
 
 	BX.namespace('BX.Sale.BasketComponent');
@@ -128,7 +129,9 @@
 
 		getEntities: function (parent, entity, additionalFilter) {
 			if (!parent || !entity)
-				return { length: 0 };
+				return {
+					length: 0
+				};
 
 			additionalFilter = additionalFilter || '';
 
@@ -149,7 +152,9 @@
 
 			if (BX.type.isDomNode(showItemsNode)) {
 				showItemsNode.style.display = '';
-				BX.bind(showItemsNode, 'click', BX.delegate(function () { this.toggleFilter('warning'); }, this));
+				BX.bind(showItemsNode, 'click', BX.delegate(function () {
+					this.toggleFilter('warning');
+				}, this));
 			}
 
 			BX.bind(
@@ -165,8 +170,8 @@
 					this.getCacheNode(this.ids.itemListWrapper),
 					'basket-items-count',
 					'[data-filter="' + event + '"]'
-				)
-				: BX.getEventTarget(event);
+				) :
+				BX.getEventTarget(event);
 
 			if (!BX.type.isDomNode(target) || BX.hasClass(target, 'active'))
 				return;
@@ -177,8 +182,7 @@
 			for (var i = 0; i < entities.length; i++) {
 				if (entities[i].getAttribute('data-filter') === entityName) {
 					BX.addClass(entities[i], 'active');
-				}
-				else if (BX.hasClass(entities[i], 'active')) {
+				} else if (BX.hasClass(entities[i], 'active')) {
 					BX.removeClass(entities[i], 'active');
 				}
 			}
@@ -236,7 +240,8 @@
 				return;
 
 			var node, position;
-			var border = 2, offset = 0;
+			var border = 2,
+				offset = 0;
 			var scrollTop = this.getDocumentScrollTop();
 			var basketPosition = BX.pos(this.getCacheNode(this.ids.basketRoot));
 			var basketScrolledToEnd = scrollTop + 200 >= basketPosition.bottom;
@@ -257,8 +262,7 @@
 								node.style.width = node.clientWidth + border + 'px';
 								BX.addClass(node, 'basket-checkout-container-fixed');
 							}
-						}
-						else if (BX.hasClass(node, 'basket-checkout-container-fixed')) {
+						} else if (BX.hasClass(node, 'basket-checkout-container-fixed')) {
 							totalBlockNode.style.height = '';
 
 							node.style.width = '';
@@ -269,8 +273,7 @@
 							if (!BX.hasClass(node, 'basket-checkout-container-fixed-hide')) {
 								BX.addClass(node, 'basket-checkout-container-fixed-hide');
 							}
-						}
-						else if (BX.hasClass(node, 'basket-checkout-container-fixed-hide')) {
+						} else if (BX.hasClass(node, 'basket-checkout-container-fixed-hide')) {
 							BX.removeClass(node, 'basket-checkout-container-fixed-hide');
 						}
 					}
@@ -298,8 +301,7 @@
 						}
 
 						offset += node.clientHeight;
-					}
-					else if (BX.hasClass(node, 'basket-items-list-header-fixed')) {
+					} else if (BX.hasClass(node, 'basket-items-list-header-fixed')) {
 						itemWrapperNode.style.paddingTop = '';
 
 						node.style.width = '';
@@ -314,9 +316,9 @@
 		},
 
 		getDocumentScrollTop: function () {
-			return window.scrollY
-				|| window.pageYOffset
-				|| document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);
+			return window.scrollY ||
+				window.pageYOffset ||
+				document.body.scrollTop + (document.documentElement && document.documentElement.scrollTop || 0);
 		},
 
 		lazyLoad: function () {
@@ -395,11 +397,10 @@
 
 			if (BX.type.isDomNode(itemCountNode)) {
 				if (state) {
-					itemCountNode.innerHTML = this.sortedItems.length + ' '
-						+ this.getGoodsMessage(this.result.BASKET_ITEMS_COUNT, 'SBB_SIMILAR_ITEM');
+					itemCountNode.innerHTML = this.sortedItems.length + ' ' +
+						this.getGoodsMessage(this.result.BASKET_ITEMS_COUNT, 'SBB_SIMILAR_ITEM');
 					itemCountNode.style.display = '';
-				}
-				else {
+				} else {
 					itemCountNode.style.display = 'none';
 				}
 			}
@@ -416,8 +417,7 @@
 				if (this.warningItems.length) {
 					itemCountNode.innerHTML = this.warningItems.length + ' ' + BX.message('SBB_BASKET_ITEMS_WARNING');
 					itemCountNode.style.display = '';
-				}
-				else {
+				} else {
 					itemCountNode.style.display = 'none';
 				}
 			}
@@ -432,11 +432,10 @@
 
 			if (BX.type.isDomNode(itemCountNode)) {
 				if (parseInt(this.result.NOT_AVAILABLE_BASKET_ITEMS_COUNT)) {
-					itemCountNode.innerHTML = this.result.NOT_AVAILABLE_BASKET_ITEMS_COUNT + ' '
-						+ this.getGoodsMessage(this.result.NOT_AVAILABLE_BASKET_ITEMS_COUNT, 'SBB_NOT_AVAILABLE_ITEM');
+					itemCountNode.innerHTML = this.result.NOT_AVAILABLE_BASKET_ITEMS_COUNT + ' ' +
+						this.getGoodsMessage(this.result.NOT_AVAILABLE_BASKET_ITEMS_COUNT, 'SBB_NOT_AVAILABLE_ITEM');
 					itemCountNode.style.display = '';
-				}
-				else {
+				} else {
 					itemCountNode.style.display = 'none';
 				}
 			}
@@ -451,11 +450,10 @@
 
 			if (BX.type.isDomNode(itemCountNode)) {
 				if (parseInt(this.result.DELAYED_BASKET_ITEMS_COUNT)) {
-					itemCountNode.innerHTML = this.result.DELAYED_BASKET_ITEMS_COUNT + ' '
-						+ this.getGoodsMessage(this.result.DELAYED_BASKET_ITEMS_COUNT, 'SBB_DELAYED_ITEM');
+					itemCountNode.innerHTML = this.result.DELAYED_BASKET_ITEMS_COUNT + ' ' +
+						this.getGoodsMessage(this.result.DELAYED_BASKET_ITEMS_COUNT, 'SBB_DELAYED_ITEM');
 					itemCountNode.style.display = '';
-				}
-				else {
+				} else {
 					itemCountNode.style.display = 'none';
 				}
 			}
@@ -467,11 +465,9 @@
 
 			if (countReminder === 1) {
 				mesCode = customMessage || 'SBB_GOOD';
-			}
-			else if (countReminder >= 2 && countReminder <= 4) {
+			} else if (countReminder >= 2 && countReminder <= 4) {
 				mesCode = customMessage ? customMessage + '_2' : 'SBB_GOOD_2';
-			}
-			else {
+			} else {
 				mesCode = customMessage ? customMessage + 'S' : 'SBB_GOODS';
 			}
 
@@ -662,8 +658,7 @@
 							if (JSON.stringify(this.items[newData.ID]) === JSON.stringify(newData)) {
 								continue;
 							}
-						}
-						else {
+						} else {
 							this.addSortedItem(newData.ID, true);
 						}
 
@@ -718,9 +713,9 @@
 							}
 
 							if (
-								!this.items[hashMap[hash][i]].HAS_SIMILAR_ITEMS
-								|| this.items[hashMap[hash][i]].SIMILAR_ITEMS_QUANTITY != otherSimilarItemsQuantity
-								|| this.items[hashMap[hash][i]].TOTAL_SIMILAR_ITEMS_QUANTITY != totalSimilarItemsQuantity
+								!this.items[hashMap[hash][i]].HAS_SIMILAR_ITEMS ||
+								this.items[hashMap[hash][i]].SIMILAR_ITEMS_QUANTITY != otherSimilarItemsQuantity ||
+								this.items[hashMap[hash][i]].TOTAL_SIMILAR_ITEMS_QUANTITY != totalSimilarItemsQuantity
 							) {
 								changedSimilarOffers.push(hashMap[hash][i]);
 
@@ -732,8 +727,7 @@
 								this.items[hashMap[hash][i]].AVAILABLE_QUANTITY = this.items[hashMap[hash][i]].ALL_AVAILABLE_QUANTITY - otherSimilarItemsQuantity;
 							}
 						}
-					}
-					else if (hashMap[hash][0] && this.items[hashMap[hash][0]].HAS_SIMILAR_ITEMS) {
+					} else if (hashMap[hash][0] && this.items[hashMap[hash][0]].HAS_SIMILAR_ITEMS) {
 						changedSimilarOffers.push(hashMap[hash][0]);
 
 						delete this.items[hashMap[hash][0]].HAS_SIMILAR_ITEMS;
@@ -768,9 +762,9 @@
 		isItemAvailable: function (itemId) {
 			var sortedItems = this.filter.isActive() ? this.filter.realSortedItems : this.sortedItems;
 
-			return !this.items[itemId].NOT_AVAILABLE
-				&& !this.items[itemId].SHOW_RESTORE
-				&& BX.util.in_array(itemId, sortedItems);
+			return !this.items[itemId].NOT_AVAILABLE &&
+				!this.items[itemId].SHOW_RESTORE &&
+				BX.util.in_array(itemId, sortedItems);
 		},
 
 		checkTotalAnimation: function (totalData) {
@@ -793,9 +787,9 @@
 			if (this.items[itemId]) {
 				var quantityNode = BX(this.ids.quantity + itemId);
 				if (
-					BX.type.isDomNode(quantityNode)
-					&& !this.actionPool.isItemInPool(itemId)
-					&& parseFloat(quantityNode.value) !== parseFloat(itemData.QUANTITY)
+					BX.type.isDomNode(quantityNode) &&
+					!this.actionPool.isItemInPool(itemId) &&
+					parseFloat(quantityNode.value) !== parseFloat(itemData.QUANTITY)
 				) {
 					itemData.QUANTITY_ANIMATION = true;
 					this.actionPool.clearLastActualQuantityPool(itemId);
@@ -812,9 +806,9 @@
 				}
 
 				if (
-					BX.util.in_array('SUM', this.params.COLUMNS_LIST)
-					&& parseFloat(this.items[itemId].SUM_PRICE) > parseFloat(itemData.SUM_PRICE)
-					&& parseFloat(this.items[itemId].QUANTITY) === parseFloat(itemData.QUANTITY)
+					BX.util.in_array('SUM', this.params.COLUMNS_LIST) &&
+					parseFloat(this.items[itemId].SUM_PRICE) > parseFloat(itemData.SUM_PRICE) &&
+					parseFloat(this.items[itemId].QUANTITY) === parseFloat(itemData.QUANTITY)
 				) {
 					itemData.SUM_PRICE_NEW = itemData.SUM_PRICE;
 					itemData.SUM_PRICE = this.items[itemId].SUM_PRICE;
@@ -892,8 +886,8 @@
 					for (var code in this.result.WARNING_MESSAGE_WITH_CODE) {
 						if (this.result.WARNING_MESSAGE_WITH_CODE.hasOwnProperty(code)) {
 							if (
-								!this.items[code]
-								&& generalWarningText.indexOf(this.result.WARNING_MESSAGE_WITH_CODE[code]) === -1
+								!this.items[code] &&
+								generalWarningText.indexOf(this.result.WARNING_MESSAGE_WITH_CODE[code]) === -1
 							) {
 								generalWarningText += this.result.WARNING_MESSAGE_WITH_CODE[code] + '<br/>';
 							}
@@ -904,8 +898,7 @@
 				if (generalWarningText) {
 					warningsNode.innerHTML = generalWarningText;
 					warningsNode.style.display = '';
-				}
-				else {
+				} else {
 					warningsNode.style.display = 'none';
 					warningsNode.innerHTML = '';
 				}
@@ -923,8 +916,7 @@
 					}
 
 					itemsWarningsNode.style.display = '';
-				}
-				else if (itemsWarningsNode.style.display !== 'none') {
+				} else if (itemsWarningsNode.style.display !== 'none') {
 					itemsWarningsNode.style.display = 'none';
 
 					if (this.filter.isActive()) {
@@ -942,12 +934,11 @@
 				var itemsWarningsNode = this.getEntity(warningNode, 'basket-item-warnings');
 
 				if (
-					(!BX.type.isDomNode(generalWarningNode) || generalWarningNode.style.display === 'none')
-					&& (!BX.type.isDomNode(itemsWarningsNode) || itemsWarningsNode.style.display === 'none')
+					(!BX.type.isDomNode(generalWarningNode) || generalWarningNode.style.display === 'none') &&
+					(!BX.type.isDomNode(itemsWarningsNode) || itemsWarningsNode.style.display === 'none')
 				) {
 					warningNode.style.display = 'none';
-				}
-				else {
+				} else {
 					warningNode.style.display = '';
 				}
 			}
@@ -961,8 +952,7 @@
 
 			if (this.items[itemData.ID] && this.lastAction === 'refreshAjax') {
 				itemWarnings = this.items[itemData.ID].WARNINGS;
-			}
-			else {
+			} else {
 				itemWarnings = [];
 			}
 
@@ -978,8 +968,7 @@
 				if (!BX.util.in_array(itemData.ID, this.warningItems)) {
 					this.warningItems.push(itemData.ID);
 				}
-			}
-			else if (BX.util.in_array(itemData.ID, this.warningItems)) {
+			} else if (BX.util.in_array(itemData.ID, this.warningItems)) {
 				this.warningItems.splice(BX.util.array_search(itemData.ID, this.warningItems), 1);
 			}
 
@@ -1054,19 +1043,16 @@
 						// insert before
 						BX(this.ids.item + this.shownItems[0]).insertAdjacentHTML('beforebegin', basketItemHtml);
 						this.shownItems.unshift(itemId);
-					}
-					else if (sortIndex > BX.util.array_search(this.shownItems[this.shownItems.length - 1], this.sortedItems)) {
+					} else if (sortIndex > BX.util.array_search(this.shownItems[this.shownItems.length - 1], this.sortedItems)) {
 						// insert after
 						BX(this.ids.item + this.shownItems[this.shownItems.length - 1]).insertAdjacentHTML('afterend', basketItemHtml);
 						this.shownItems.push(itemId);
-					}
-					else {
+					} else {
 						// insert between
 						BX(this.ids.item + this.sortedItems[sortIndex + 1]).insertAdjacentHTML('beforebegin', basketItemHtml);
 						this.shownItems.splice(sortIndex + 1, 0, itemId);
 					}
-				}
-				else {
+				} else {
 					this.getCacheNode(this.ids.itemListTable).insertAdjacentHTML('beforeend', basketItemHtml);
 					this.shownItems.push(itemId);
 				}
@@ -1137,8 +1123,7 @@
 				if (BX.type.isDomNode(BX(this.ids.item + item.ID))) {
 					this.redrawBasketItemNode(item.ID);
 					this.applyQuantityAnimation(item.ID);
-				}
-				else {
+				} else {
 					this.createBasketItem(item.ID);
 				}
 			}
@@ -1188,8 +1173,7 @@
 							if (!nodeCache[nodeId]) {
 								if (nodeId === this.ids.total) {
 									nodeCache[nodeId] = this.getEntities(this.getCacheNode(this.ids.basketRoot), this.ids.total);
-								}
-								else {
+								} else {
 									var node = BX(nodeId);
 									nodeCache[nodeId] = node ? [node] : [];
 								}
@@ -1220,16 +1204,13 @@
 							if (nodeId.indexOf(this.ids.sumPrice) !== -1) {
 								type = 'SUM_PRICE';
 								itemId = nodeId.substr(this.ids.sumPrice.length);
-							}
-							else if (nodeId.indexOf(this.ids.price) !== -1) {
+							} else if (nodeId.indexOf(this.ids.price) !== -1) {
 								type = 'PRICE';
 								itemId = nodeId.substr(this.ids.price.length);
-							}
-							else if (nodeId.indexOf(this.ids.total) !== -1) {
+							} else if (nodeId.indexOf(this.ids.total) !== -1) {
 								type = 'TOTAL';
 								itemId = '';
-							}
-							else {
+							} else {
 								itemId = '';
 								type = '';
 							}
@@ -1240,8 +1221,7 @@
 									delete this.items[itemId][type + '_NEW'];
 									this.items[itemId][type + '_FORMATED'] = formattedPrice;
 									delete this.items[itemId][type + '_FORMATED_NEW'];
-								}
-								else if (type === 'TOTAL') {
+								} else if (type === 'TOTAL') {
 									this.result.TOTAL_RENDER_DATA.PRICE = animationData.finish[nodeId];
 									delete this.result.TOTAL_RENDER_DATA.PRICE_NEW;
 									this.result.TOTAL_RENDER_DATA.PRICE_FORMATED = formattedPrice;
@@ -1283,8 +1263,7 @@
 				this.items[itemId].SHOW_RESTORE = true;
 				this.items[itemId].SHOW_LOADING = false;
 				this.redrawBasketItemNode(itemId);
-			}
-			else {
+			} else {
 				this.changeShownItem(itemId);
 				BX.remove(BX(this.ids.item + itemId));
 			}
@@ -1309,8 +1288,7 @@
 			if (index >= 0) {
 				if (newItemId) {
 					this.sortedItems.splice(index, 1, newItemId.toString());
-				}
-				else {
+				} else {
 					this.sortedItems.splice(index, 1);
 				}
 			}
@@ -1321,8 +1299,7 @@
 				if (index >= 0) {
 					if (newItemId) {
 						this.filter.realSortedItems.splice(index, 1, newItemId.toString());
-					}
-					else {
+					} else {
 						this.filter.realSortedItems.splice(index, 1);
 					}
 				}
@@ -1343,8 +1320,7 @@
 			if (index >= 0) {
 				if (newItemId) {
 					this.shownItems.splice(index, 1, newItemId.toString());
-				}
-				else {
+				} else {
 					this.shownItems.splice(index, 1);
 				}
 			}
@@ -1355,8 +1331,7 @@
 				if (index >= 0) {
 					if (newItemId) {
 						this.filter.realShownItems.splice(index, 1, newItemId.toString());
-					}
-					else {
+					} else {
 						this.filter.realShownItems.splice(index, 1);
 					}
 				}
@@ -1387,7 +1362,9 @@
 
 					if (BX.type.isDomNode(nodeAligner) && nodeAligner.clientHeight < oldHeight) {
 						nodeAligner.style.minHeight = oldHeight + 'px';
-						setTimeout(function () { nodeAligner.style.minHeight = '0px'; }, 1);
+						setTimeout(function () {
+							nodeAligner.style.minHeight = '0px';
+						}, 1);
 					}
 				}
 
@@ -1470,13 +1447,15 @@
 
 		startQuantityInterval: function () {
 			var target = BX.proxy_context;
-			var func = target.getAttribute('data-entity') === 'basket-item-quantity-minus'
-				? BX.proxy(this.quantityMinus, this)
-				: BX.proxy(this.quantityPlus, this);
+			var func = target.getAttribute('data-entity') === 'basket-item-quantity-minus' ?
+				BX.proxy(this.quantityMinus, this) :
+				BX.proxy(this.quantityPlus, this);
 
 			this.quantityDelay = setTimeout(
 				BX.delegate(function () {
-					this.quantityTimer = setInterval(function () { func(target); }, 150);
+					this.quantityTimer = setInterval(function () {
+						func(target);
+					}, 150);
 				}, this),
 				300
 			);
@@ -1575,15 +1554,14 @@
 
 				if (measureRatio > 0 && remain > 0) {
 					if (
-						remain >= measureRatio / 2
-						&& (
-							availableQuantity === 0
-							|| (quantity + measureRatio - remain) <= availableQuantity
+						remain >= measureRatio / 2 &&
+						(
+							availableQuantity === 0 ||
+							(quantity + measureRatio - remain) <= availableQuantity
 						)
 					) {
 						quantity += (measureRatio - remain);
-					}
-					else {
+					} else {
 						quantity -= remain;
 					}
 				}
@@ -1620,8 +1598,8 @@
 
 			var startPrice = parseFloat(itemData.SUM_PRICE),
 				finalPrice = parseFloat(itemData.PRICE) * quantityMultiplier,
-				isInt = parseInt(startPrice) === parseFloat(startPrice)
-					&& parseInt(finalPrice) === parseFloat(finalPrice);
+				isInt = parseInt(startPrice) === parseFloat(startPrice) &&
+				parseInt(finalPrice) === parseFloat(finalPrice);
 
 			if (startPrice !== finalPrice) {
 				this.items[itemData.ID].QUANTITY = quantity;
@@ -1629,8 +1607,12 @@
 
 				new BX.easing({
 					duration: this.params.USE_PRICE_ANIMATION === 'Y' ? this.duration.priceAnimation : 1,
-					start: { price: startPrice },
-					finish: { price: finalPrice },
+					start: {
+						price: startPrice
+					},
+					finish: {
+						price: finalPrice
+					},
 					transition: BX.easing.makeEaseOut(BX.easing.transitions.quad),
 					step: BX.delegate(function (state) {
 						if (!isInt) {
@@ -1665,7 +1647,11 @@
 			var data = false;
 			var id;
 
-			var itemNode = BX.findParent(target, { attrs: { 'data-entity': 'basket-item' } });
+			var itemNode = BX.findParent(target, {
+				attrs: {
+					'data-entity': 'basket-item'
+				}
+			});
 			if (itemNode) {
 				id = itemNode.getAttribute('data-id');
 				data = this.items[id];
@@ -1706,8 +1692,7 @@
 					for (i = 0, l = currentSkuListNodes.length; i < l; i++) {
 						if (currentSkuListNodes[i].isEqualNode(target)) {
 							BX.addClass(currentSkuListNodes[i], 'selected');
-						}
-						else {
+						} else {
 							BX.removeClass(currentSkuListNodes[i], 'selected');
 						}
 					}
@@ -1765,9 +1750,9 @@
 			if (item && item.COLUMN_LIST) {
 				for (i in item.COLUMN_LIST) {
 					if (
-						item.COLUMN_LIST.hasOwnProperty(i)
-						&& item.COLUMN_LIST[i].CODE === propertyCode
-						&& item.COLUMN_LIST[i].VALUE[imageIndex]
+						item.COLUMN_LIST.hasOwnProperty(i) &&
+						item.COLUMN_LIST[i].CODE === propertyCode &&
+						item.COLUMN_LIST[i].VALUE[imageIndex]
 					) {
 						imageSrc = item.COLUMN_LIST[i].VALUE[imageIndex].IMAGE_SRC_ORIGINAL;
 						break;
@@ -1790,15 +1775,22 @@
 				lightShadow: true,
 				offsetTop: 0,
 				offsetLeft: 0,
-				closeIcon: { top: '3px', right: '10px' },
+				closeIcon: {
+					top: '3px',
+					right: '10px'
+				},
 				autoHide: true,
-				bindOptions: { position: 'bottom' },
+				bindOptions: {
+					position: 'bottom'
+				},
 				closeByEsc: true,
 				zIndex: 100,
 				events: {
 					onPopupShow: function () {
 						BX.create('IMG', {
-							props: { src: imageSrc },
+							props: {
+								src: imageSrc
+							},
 							events: {
 								load: function () {
 									var content = BX(imageId);
@@ -1838,7 +1830,11 @@
 						this.destroy();
 					}
 				},
-				content: BX.create('DIV', { props: { id: imageId } })
+				content: BX.create('DIV', {
+					props: {
+						id: imageId
+					}
+				})
 			});
 			this.imagePopup.show();
 		},
@@ -1868,7 +1864,9 @@
 			BX.bind(entity, 'click', BX.proxy(this.mergeAction, this));
 
 			entity = this.getEntity(node, 'basket-item-show-similar-link');
-			BX.bind(entity, 'click', BX.delegate(function () { this.toggleFilter('similar'); }, this));
+			BX.bind(entity, 'click', BX.delegate(function () {
+				this.toggleFilter('similar');
+			}, this));
 		},
 
 		deleteAction: function () {
@@ -1973,8 +1971,8 @@
 			var clonedData = BX.clone(data);
 
 			if (BX.type.isPlainObject(clonedData)) {
-				clonedData.USE_FILTER = this.useItemsFilter
-					&& !this.filter.currentFilter.similarHash.length;
+				clonedData.USE_FILTER = this.useItemsFilter &&
+					!this.filter.currentFilter.similarHash.length;
 			}
 
 			return Mustache.render(template, clonedData);
@@ -1998,15 +1996,13 @@
 						if (this.items[itemId]) {
 							itemsDiff[itemId] = parseFloat(data.basket[i]) - parseFloat(BX(this.ids.quantity + itemId).getAttribute('data-value'));
 						}
-					}
-					else if (i.indexOf('DELETE_') >= 0) {
+					} else if (i.indexOf('DELETE_') >= 0) {
 						itemId = i.substr(7);
 
 						if (this.items[itemId]) {
 							itemsDiff[itemId] = -parseFloat(this.items[itemId].QUANTITY);
 						}
-					}
-					else if (i.indexOf('RESTORE_') >= 0) {
+					} else if (i.indexOf('RESTORE_') >= 0) {
 						itemId = i.substr(8);
 
 						if (this.items[itemId]) {
@@ -2025,14 +2021,14 @@
 
 			window[this.params.DATA_LAYER_NAME] = window[this.params.DATA_LAYER_NAME] || [];
 
-			var plus = [], minus = [];
+			var plus = [],
+				minus = [];
 
 			for (var itemId in itemsDiff) {
 				if (itemsDiff.hasOwnProperty(itemId)) {
 					if (itemsDiff[itemId] > 0) {
 						plus.push(this.getItemAnalyticsInfo(itemId, itemsDiff[itemId]));
-					}
-					else if (itemsDiff[itemId] < 0) {
+					} else if (itemsDiff[itemId] < 0) {
 						minus.push(this.getItemAnalyticsInfo(itemId, itemsDiff[itemId]));
 					}
 				}

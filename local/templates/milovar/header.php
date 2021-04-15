@@ -53,7 +53,7 @@ if(CModule::IncludeModule("sale")){
 
         <?$APPLICATION->ShowHead();?>
     </head>
-    <body class="<?$APPLICATION->ShowProperty("BODY_CLASS")?>">
+    <body class="<?$APPLICATION->ShowProperty("BODY_CLASS")?> <?= ($APPLICATION->GetCurPage() != '/' ) ? 'bg-page' : '' ; ?>">
         <?$APPLICATION->ShowPanel()?>
 
         <div id="wrapper">

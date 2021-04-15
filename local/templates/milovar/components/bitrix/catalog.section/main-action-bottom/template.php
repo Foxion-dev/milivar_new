@@ -62,6 +62,7 @@ use Bitrix\Sale;
 
                                 <? if($num_of == 3): ?>
                                     <div class="catalog-product__variation-hidden js-offers-hid">
+                                    <div class="catalog-product__variation-hidden-wrap">
                                 <? endif; ?>
 
                                 <div class="catalog-product__variation-item js-sel-product<?= $odin_offer['class'] ?>" data-big-data='<?= $odin_offer["big_data"] ?>'>
@@ -73,6 +74,7 @@ use Bitrix\Sale;
                                 </div>
 
                                 <? if(($num_of == count($item['variacii']) - 1) && (count($item['variacii']) > 3)): ?>
+                                    </div>
                                     </div>
                                     <div class="catalog-product__variation-toggle js-offers-toggle">
                                         <span class="catalog-product__variation-open">Показать ещё</span>

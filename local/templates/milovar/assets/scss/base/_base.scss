@@ -34,7 +34,7 @@ dd {
 
 /* Выставляем основные настройки по-умолчанию для body */
 html,
-body{
+body {
   height: 100%;
 }
 
@@ -47,31 +47,42 @@ body {
   overflow-x: hidden;
   background-color: $c_back;
   color: $c_content;
+
+  &.bg-page {
+    background: rgb(242, 245, 249);
+  }
 }
 
-#wrapper{
+#wrapper {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.header{
+.header {
   flex: 0 0 auto;
   position: relative;
   z-index: 11;
 }
 
-.main{
+.main {
   flex: 1 0 auto;
   padding-top: 162px;
+  padding-bottom: 90px;
+  background: #fff;
 
-  @media screen and (max-width: 650px){
+  @media screen and (max-width: 650px) {
     padding-top: 122px;
   }
+
+  @include max-screen (480px) {
+    padding-bottom: 50px;
+  }
+
 }
 
 
-.footer{
+.footer {
   flex: 0 0 auto;
 }
 
@@ -98,19 +109,20 @@ body {
 }
 
 /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
-a{
+a {
   text-decoration: none;
   border: none;
   outline: none;
   color: #000;
   cursor: pointer;
 
-  a:focus{
+  a:focus {
     text-decoration: none;
     border: none;
     outline: none;
   }
 }
+
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
@@ -121,7 +133,7 @@ img {
 }
 
 /* Указываем понятную периодичность в потоке данных у article*/
-article > * + * {
+article>*+* {
   margin-top: 1em;
 }
 

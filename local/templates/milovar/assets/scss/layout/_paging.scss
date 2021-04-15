@@ -1,11 +1,13 @@
-.paging-block{
+.paging-block {
     display: flex;
     justify-content: flex-end;
     margin: 0 -5px;
 
+    padding: 20px 0 0 0;
+
     &__dots,
     &__current,
-    a{
+    a {
         display: flex;
         width: 34px;
         height: 34px;
@@ -17,31 +19,32 @@
         font-size: 15px;
         @include museo500;
 
-        &:hover{
+        &:hover {
             color: $c_func_color;
         }
     }
 
-    &__current{
+    &__current {
         pointer-events: none;
         background-color: $c_func_color;
         color: $c_white;
     }
 
-    &__next{
+    &__next {
         margin-right: -5px !important;
     }
 
-    .scoba{
+    .scoba {
+
         &-left,
-        &-right{
+        &-right {
             display: flex;
             height: 100%;
             width: 100%;
             position: relative;
 
             &::before,
-            &::after{
+            &::after {
                 position: absolute;
                 content: "";
                 width: 8px;
@@ -53,22 +56,23 @@
                 transform: translateX(-50%) translateY(-50%) rotate(-45deg);
             }
 
-            &::after{
+            &::after {
                 transform: translateX(-50%) translateY(-50%) rotate(45deg);
             }
 
-            &:hover{
+            &:hover {
 
                 &::before,
-                &::after{
+                &::after {
                     background-color: $c_func_color;
                 }
             }
         }
 
-        &-left{
+        &-left {
+
             &::before,
-            &::after{
+            &::after {
                 transform-origin: left;
             }
         }

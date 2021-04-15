@@ -21,10 +21,10 @@ $APPLICATION->SetTitle("Раздел");
                     <div class="catalog-category__title">
                         <span>Категории</span>
                     </div>
-										            <div class="mobile-button">
-                <span class="cat-open">Меню<br />каталога</span>
-                <span class="cat-close"></span>
-            </div>
+									<div class="mobile-button">
+											<span class="cat-open">Меню<br />каталога</span>
+											<span class="cat-close"></span>
+									</div>
                     <div class="catalog-category__block">
                         <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list", 
@@ -117,7 +117,7 @@ $APPLICATION->SetTitle("Раздел");
 		"CACHE_FILTER" => "N",
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "36000000",
-		"CACHE_TYPE" => "A",
+		"CACHE_TYPE" => "N",
 		"COMPATIBLE_MODE" => "Y",
 		"COMPONENT_TEMPLATE" => "milovar",
 		"CONVERT_CURRENCY" => "N",

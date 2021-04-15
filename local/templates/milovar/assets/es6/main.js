@@ -102,6 +102,7 @@
         }
 
         $(document).on('click', '.mobile-button', function () {
+            // console.log('resr');
             $(this).parent('.catalog-category').toggleClass('opened');
         })
     }
@@ -250,6 +251,8 @@
             var linkAdd = $(this).attr('data-link');
             linkAdd = $.parseJSON(linkAdd).basket_link;
             linkAdd += "&quantity=" + parBlock.find('.js-card-count').val();
+            $(this).addClass('open').text('Добавлено');
+
 
             // console.log(linkAdd);
 
@@ -408,7 +411,9 @@
 
         if (!window.order_step.city) {
             var top = $('#bx-soa-order-form').offset().top;
-            $('body,html').animate({ scrollTop: top }, 500);
+            $('body,html').animate({
+                scrollTop: top
+            }, 500);
             $('#select-region-order').addClass('error');
             return false;
         }
@@ -437,7 +442,10 @@
             if ($(this).prop('checked')) {
                 $('.order-buyer-gorod, .order-buyer-dom').removeAttr('style');
                 $('#select-region-origin, #select-region-order, #recent-delivery-value').val('');
-                $('#select-region-order').css({ "opacity": .3, "pointer-events": "none" }).removeClass('error')
+                $('#select-region-order').css({
+                    "opacity": .3,
+                    "pointer-events": "none"
+                }).removeClass('error')
                 $('#alt-local').val(1);
 
             } else {
@@ -651,8 +659,7 @@
         arrows: true,
         prevArrow: '<div class="custom-slick-arrow custom-slick-arrow--prev"><span></span></div>',
         nextArrow: '<div class="custom-slick-arrow custom-slick-arrow--next"><span></span></div>',
-        responsive: [
-            {
+        responsive: [{
                 breakpoint: 769,
                 settings: {
                     slidesToShow: 1,

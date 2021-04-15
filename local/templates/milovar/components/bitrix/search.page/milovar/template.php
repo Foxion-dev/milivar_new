@@ -40,7 +40,7 @@
 
                     <div class="search-result__item-counter js-cart-counter">
                         <div class="search-result__item-price">
-                            <span class="js-cart-price"><?= number_format((float)$arItem["OFFERS"][0]["price"], 2, ".", " ") ?> Р</span>
+                            <span class="js-cart-price"><?= number_format((float)$arItem["OFFERS"][0]["price"], 0, " ", " ") ?> Р</span>
                         </div>
 
                         <div  class="search-result__item-num">

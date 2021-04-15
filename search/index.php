@@ -13,10 +13,14 @@ $APPLICATION->SetTitle("Поиск");
         <? endif; ?>
     </div>
 
-    <div class="search-full">
+    <div class="search-full ">
         <div class="search-full__category catalog-category">
                 <div class="catalog-category__title">
                     <span>Категории</span>
+                </div>
+                <div class="mobile-button mobile-button--search">
+                    <span class="cat-open">Меню<br />каталога</span>
+                    <span class="cat-close"></span>
                 </div>
 
                 <div class="catalog-category__block">
